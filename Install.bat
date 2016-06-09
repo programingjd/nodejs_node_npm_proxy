@@ -57,14 +57,14 @@ IF NOT EXIST "%NODE4_DIR%" (
   popd
 )
 
-set NODE5_DIR=node5
-FOR %%i in ("%NODE5_DIR%") DO set NODE5_DIR=%%~fi
-IF NOT EXIST "%NODE5_DIR%" (
-  mkdir %NODE5_DIR%
-  pushd %NODE5_DIR%
-  echo Downloading Node 5.10.0 ^(64bit^).
-  "%CURL_PATH%" -k -O https://nodejs.org/dist/v5.10.0/win-x64/node.exe
-  rename node.exe node5.exe
+set NODE6_DIR=node6
+FOR %%i in ("%NODE6_DIR%") DO set NODE5_DIR=%%~fi
+IF NOT EXIST "%NODE6_DIR%" (
+  mkdir %NODE6_DIR%
+  pushd %NODE6_DIR%
+  echo Downloading Node 6.1.0 ^(64bit^).
+  "%CURL_PATH%" -k -O https://nodejs.org/dist/v6.1.0/win-x64/node.exe
+  rename node.exe node6.exe
   popd
 )
 
@@ -83,10 +83,10 @@ IF NOT EXIST "%NODE4_DIR%\npm4.cmd" (
   rename npm.cmd npm4.cmd
 )
 popd
-pushd %NODE5_DIR%
-IF NOT EXIST "%NODE5_DIR%\npm5.cmd" (
+pushd %NODE6_DIR%
+IF NOT EXIST "%NODE6_DIR%\npm6.cmd" (
   FOR /F "delims=" %%i in ('%UNZIP_PATH% -o -qq %NPM_DISTRIBUTION_ARCHIVE%') DO REM
-  rename npm.cmd npm5.cmd
+  rename npm.cmd npm6.cmd
 )
 popd
 
@@ -98,9 +98,9 @@ go install src\npm.go
 :install
 echo Updating the nodejs distributions.
 xcopy /Y bin\node.exe node4
-xcopy /Y bin\node.exe node5
+xcopy /Y bin\node.exe node6
 xcopy /Y bin\npm.exe node4
-xcopy /Y bin\npm.exe node5
+xcopy /Y bin\npm.exe node6
 
 popd
 

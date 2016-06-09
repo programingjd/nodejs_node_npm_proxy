@@ -22,7 +22,7 @@ func args() []string {
     if arg1 == "-4" {
       os.Setenv(VERSION_VAR_NAME, "4")
       return os.Args[2:]
-    } else if arg1 == "-5" {
+    } else if arg1 == "-6" {
       os.Setenv(VERSION_VAR_NAME, "")
       return os.Args[2:]
     } else {

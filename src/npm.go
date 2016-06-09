@@ -12,7 +12,7 @@ func exe() string {
   if os.Getenv(VERSION_VAR_NAME) == "4" {
     return "C:/Progra~2/NodeJS/npm4.cmd"
   } else {
-    return "C:/Progra~1/NodeJS/npm5.cmd"
+    return "C:/Progra~1/NodeJS/npm6.cmd"
   }
 }
 
